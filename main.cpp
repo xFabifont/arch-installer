@@ -58,7 +58,7 @@ int main() {
 
   if(cpu == "1" && packages.find("intel-ucode") == std::string::npos)
     packages += " intel-ucode";
-  else if(cpu == "2" && !packages.find("amd-ucode") == std::string::npos)
+  else if(cpu == "2" && packages.find("amd-ucode") == std::string::npos)
     packages += " amd-ucode";
 
   // ZONEINFO
