@@ -85,6 +85,9 @@ int main() {
   fdisk_wrapper << keystroke;
   fdisk_wrapper.close();
 
+  if(disk.find("nvme") != std::string::npos)
+    disk += 'p';
+
   system(("fdisk " + disk + " < fdisk.txt").c_str());
   system(("mkfs.vfat " + disk + "1").c_str());
   system(("mkswap " + disk + "2").c_str());
